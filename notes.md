@@ -46,6 +46,6 @@ See function_constructor.js
 
 ## .Prototype
 
-![Explaining prototype](https://www.dropbox.com/s/9z29hfbbeh8b6i2/Screenshot%202015-09-29%2017.20.28.png?dl=0)
+![Explaining prototype](https://cloud.githubusercontent.com/assets/3127498/10178592/b71a38a2-66ce-11e5-8235-6491dfd7e0a7.png)
 
 
