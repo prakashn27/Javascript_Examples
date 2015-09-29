@@ -27,6 +27,9 @@ c.__proto__
 see reflection demo
 
 ## Function Construtor
+
+Normal function used to construct objects
+
 ```
 function Person() {
 	this.first = "Prakash";
@@ -36,5 +39,13 @@ function Person() {
 var john = new Person();
 ```
 
+See function_constructor.js
+
+> new keyword sets a new this instance and values are added to that instance
+> if there is not return statement it returns the object that you have worked on
+
+## .Prototype
+
+![Explaining prototype](https://www.dropbox.com/s/9z29hfbbeh8b6i2/Screenshot%202015-09-29%2017.20.28.png?dl=0)
 
 
