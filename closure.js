@@ -37,3 +37,32 @@ var greetenglish = greet('en');
 var greetspanish = greet('es');
 greetenglish('prakash', 'natarajan');
 greetspanish('prakash', 'natarajan');
+
+
+function say667() {
+  // Local variable that ends up within closure
+  var num = 666;
+  var sayAlert = function() { console.log(num); }
+  num += 10;
+  return sayAlert;
+}
+
+var say = say667()
+say()
+
+// enabling private variable in javascript
+
+var Person = function() {
+	var name = "Default";
+	return function() {
+		var getName = function() {
+			return this.name;
+		}
+		var setName = function(newName) {
+			this.name = newName
+		}
+	}
+}
+
+var prakash = new Person()
+console.log(prakash().getName());

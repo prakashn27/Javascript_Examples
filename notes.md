@@ -1,5 +1,10 @@
 # Javascript
 
+## Closure:
+> a closure is the local variables for a function - kept alive after the function has returned, 
+> a closure is a stack-frame which is not deallocated when the function returns. (as if a 'stack-frame' were malloc'ed instead of being on the stack!
+
+
 ## Functional programming
 
 [Underscrore.js](http://underscorejs.org/docs/underscore.html) helps in working  with arrays and objects in a neat way and a lot of functional programming helps. 
@@ -137,6 +142,106 @@ instanceof
 
 "use strict";
 either top of file or top of function  
+
+## Transpilers:
+- convert the syntax of one programming language to another.
+
+Following languages are traspiled in js
+* typescript by microsoft
+* traceur in github
+
+## ES6 features links
+* [es6 with demo of each feature](http://es6-features.org/)
+
+## New ES6 fetures
+* default argument values
+* classes
+* arrow functions like lambda
+* block scoped variables
+
+
+# Performance Issues best practices:
+
+Following points are taken from the [googletechtalks video](https://www.youtube.com/watch?v=mHtdZgou0qU) by Nicholas C. Zakas
+(Nicholas C. Zakas is the author of Professional JavaScript for Web Developers, 2nd Edition (Wrox, 2009), co-author of Professional Ajax, 2nd Edition (Wrox, 2007), and a contributor to Even Faster Web Sites (O'Reilly, 2009). Nicholas is principal front end engineer for the Yahoo! homepage and is also a contributor to the Yahoo! User Interface (YUI) library.)
+
+
+
+## Scope management
+
+With/catch and inside the closure creates a new execution context slowing down the execution.
+
+### Recommendations:
+* Store out of scope variables in local variables. (global into local)
+* Avoid with statement
+* be careful with try catch
+* sue closure sparingly
+* dont forget var when declaring variables as it takes longer to create without var keywor
+
+## Data access
+
+4 places to get data:
+* literal
+* variable
+* array item
+* object property
+
+access data from literal and local variable is always fastest. 
+access data from  array item and object property is slowest.
+Object.name is faster than Object.name.name
+
+### Difference between notation:
+object["name"] and object.name:
+only differs in safari.
+
+### Recommendations:
+Store in local variable
+* any object property accessed more than once 
+* any array item accessed more than once
+* minimize the deep array lookup 
+
+## Loops:
+### To avoid
+for in - inefficent
+for each
+array.foreach()
+all function based iterations angular.foreach, jquery.foreach
+
+### Which one to use
+It does not matter which ever you use below. All are same:
+for 
+do 
+do while
+
+### Recommendations:
+reduce the number of evaluations
+```
+var j = len;
+while(j--) { //only one evaluation(j-- == True) rather than two (j < len == true)
+  
+}
+```
+## DOM
+slowest part of all of it
+HTMLCollection:
+all the document attributes are HTMLCollection
+problem is that it is live and it always checks for elements even after getting the reference.
+```Javascript
+divs = document.getElementByTagName("div")
+for(var i = 0; i < divs.length; i++) {
+  var div = document.createElement("div");
+  document.body.append(div);
+}
+```
+Problem with here is since it is live connection divs.length is doubles for every look and we get an infinite loop.
+
+div.length takes 53x times more that normal array length because of this property
+for optimization this can be rewritten as
+```
+for(var i = 0, len=divs.lenght; i < len; i++) {
+  
+}
+```
 
 
 
