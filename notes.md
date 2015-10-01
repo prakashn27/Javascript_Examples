@@ -243,6 +243,31 @@ for(var i = 0, len=divs.lenght; i < len; i++) {
 }
 ```
 
+### Reflow
+- process by which geometry of layout engine's formatting objects are computed.
+
+When reflow:
+* Initial page load
+* browser resize of webpage
+* DOM nodes added or removed
+* Layout styles applied
+* Layout information retreived
+
+#### Recommendation:
+* add to [Document Fragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) first in the loop. and then add to the document object. this reduces reflow while adding and removing DOM objects. 
+* Miminize the changes on style property. define a css class with all changes and change the class name.
+* Minimize access layout. 
+
+## SUmmary:
+* Mind your scope.
+* Local variables are our friends.
+* function execution comes at a cost.
+* Keep loops small.
+* avoid doing work whenever possible. 
+* Minimize DOM interaction. 
+* Use good browser and encourage others to do so. 
+
+
 
 
 
